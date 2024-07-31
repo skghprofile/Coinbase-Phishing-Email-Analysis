@@ -1,10 +1,23 @@
 # Coinbase Phishing Email Analysis
 
+## Table Of Contents
+
+- [Coinbase Phishing Email Analysis](#coinbase-phishing-email-analysis)
+  - [Table Of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Surface Level Analysis](#surface-level-analysis)
+  - [Hyperlink URL Analysis](#hyperlink-url-analysis)
+  - [Malicious Parent Domain Analysis](#malicious-parent-domain-analysis)
+  - [Conclusion](#conclusion)
+  - [Updates/Notes](#updatesnotes)
+
+---
+
 ## Introduction
 
 This project analyzes a phishing email I received in my personal email inbox that was automatically flagged as spam and put into my junk email folder.
 
-## Analysis
+## Surface Level Analysis
 
 Here is the email I received from "Coinbase Wallet" to my email address:
 
@@ -52,6 +65,8 @@ Even if Coinbase used a domain or sub-domain that wasn't listed above or you sus
   2. The footer also seems to be made for an email address in Ireland since all of the contact info for Coinbase at that location is correct. This also makes me think this is a used template since I reside in the United States and have no reason to receive an email from a legitimate corporation in Europe if they have one that's based out of the United States.
  ![Email Footer](/Images/CPEA-img06.PNG)
 
+## Hyperlink URL Analysis
+
 - Before moving on to the clearest sign of this email being a part of a mass phishing campaign sent by a malicious actor, I'd like to note that I have never created or owned a Coinbase account with this email address or any other email address in my possession.
 
 - The last part of the analysis of this email on the surface that shows that it's not a legitimate Coinbase email is the "Continue" button hyperlink in the email, wanting the user to take action to "complete the updated two-factor authentication (2FA)". 
@@ -74,6 +89,8 @@ Trying to see any snapshots of the malicious URL, I entered the URL into the [In
 
 ![Wayback Machine Page](/Images/CPEA-img11.PNG)
 ![Wayback Machine Page](/Images/CPEA-img12.PNG)
+
+## Malicious Parent Domain Analysis
 
 My next thought was to search the primary domain "demontconsultancy(.)org" to see if any web pages are associated with this domain. This domain yielded a web page for studying in Ukraine.
 
@@ -119,6 +136,7 @@ My opinion, with no factual evidence behind it, on how this phishing campaign is
 - The same team behind the campaign also bought or took over the "https://cbsbirango(.)net" domain, but I am curious why the hyperlink in the original email isn't directly linking to the final URL of "colnbase-com(.)demontconsultancy(.)org". The only reasoning I can think of is that email clients search for domains and sub-domains similar to official ones for spam and phishing emails, and going to an unrelated random domain before being redirected to the final one is a way around that search.
 - The sender of the original email itsself "info@aalinfo(.)com" could be a legitimate company. The email itself passes SPF checks but doesn't pass DKIM authentication, and the domain isn't set up with DMARC, so it also fails that check by default. Their website does SAP consulting and hosts SAP training courses. They also link a YouTube channel on their website that has videos uploaded by the company over the course of 4 years, 1+ year under Aalinfo. Also, the domain "aalinfo(.)com" doesn't appear to be blacklisted, so if aalinfo isn't a part of this campaign knowingly, this domain to me has the highest chance out of all the domains listed above to be compromised.
 
+## Updates/Notes
 
 7-31-2024 Update/Note:
 
